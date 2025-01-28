@@ -1,0 +1,169 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F1EAEA;
+    color: #333;
+}
+
+/*Header*/
+
+header {
+    background: linear-gradient(to left,
+            #0E6655 100%,
+            rgba(14, 102, 85, 0.8) 75%,
+            rgba(14, 102, 85, 0) 55%);
+    width: 100vw;
+    height: 449px;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    background: linear-gradient(to left,
+            #0E6655 100%,
+            rgba(14, 102, 85, 0.8) 75%,
+            rgba(14, 102, 85, 0) 55%);
+    width: 100%;
+    max-width: 1310px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.navLinks {
+    margin: 10px;
+    font-weight: lighter;
+}
+
+.toggleBtn {
+    width: 55px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+
+}
+
+.searchInputField {
+    background-color: white;
+    border-radius: 20px;
+    width: 430px;
+    display: flex;
+    justify-content: left;
+
+}
+
+.hBox {
+    width: 70%;
+    height: 397px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/* main */
+
+main {
+    padding: 2rem;
+}
+
+
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin: 0 0 0.5rem;
+}
+
+.card p {
+    margin: 0.5rem 0;
+}
+
+/* Footer */
+
+footer {
+    width: 100vw;
+    height: 535px;
+    background: linear-gradient(to left,
+            #0E6655 100%,
+            rgba(14, 102, 85, 0.8) 75%,
+            rgba(14, 102, 85, 0) 55%);
+
+}
+
+.footerBox {
+    width: 70%;
+}
+
+.hBoxFooter {
+    display: flex;
+    flex-direction: row;
+    color: #F1EAEA;
+
+}
+
+
+/* Typography*/
+
+.typographySmall {
+    font-size: 15px;
+    color: black;
+    margin-left: 5px;
+}
+
+.typographyThin {
+    font-size: 30;
+    font-weight: 200;
+}
+
+/* Headings */
+
+h1 {
+    font-size: 36px;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 200;
+    margin-top: -10px;
+}
