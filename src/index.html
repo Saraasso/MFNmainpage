@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFN Data Viewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">MFN</div>
+            <div class="navBox">
+                <div class="navLinks">Om oss</div>
+                <div class="navLinks">Kontakt</div>
+                <div class="navLinks">Produkter & Erbjudanden</div>
+            </div>
+            <div class="searchInputField">
+                <div class="typographySmall">Sök..</div>
+            </div>
+            <div class="navBox">
+                <div class="navLinks">Logga in</div>
+                <buttn class="toggleBtn"> hej</button>
+            </div>
+        </div>
+        <div class="hBox">
+            <h1>Samlingsplatsen för de senaste finans nyheterna i norden </h1>
+            <h4>Strömmade pressmeddelanden och finansiella rapporter – allt du behöver för att hålla dig
+                steget före på
+                marknaden.</h4>
+        </div>
+    </header>
+
+    <main>
+        <!-- <div class="table"> 
+            <div class="tableBody" id="tableBody">
+                <div class="tRow">
+                    <div class="td">
+                        <div class="thParagraph">hej</div>
+                    </div>
+                    <div class="td">
+                        <div class="thParagraph">hej2</div>
+                    </div>
+                    <div class="td">
+                        <div class="thParagraph">hej2</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+
+        </div>
+
+
+        </div>
+-->
+        <div class="table">
+            <table>
+                <!--<thead>
+                    <tr>
+                        <th>Publish Date</th>
+                        <th>Title</th>
+                        <th>Preamble</th>
+                    </tr>
+                </thead>
+-->
+
+                <tbody classname="tableBody" id="tableBody">
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footerBox">
+            <div class="hBoxFooter">
+
+                <div class="logo">MFN</div>
+                <p class="typographyThin">En produkt av Modular Finance</p>
+
+                </box>
+            </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Fetch the data from the data.json file
+            fetch('data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();  // Parse the JSON data from the response
+                })
+                .then(data => {
+                    const tableBody = document.getElementById('tableBody');  // Get the table body element
+
+                    // Limit to the first 10 items
+                    const latestItems = data.items.slice(0, 10);  // Get the first 10 items
+
+                    // Loop through the latest 10 items and populate the table
+                    latestItems.forEach(item => {
+                        // Create a container div for each item (table row)
+                        const row = document.createElement('div');
+                        row.classList.add('tRow');  // Add class for styling
+
+                        // Function to limit text to the first 10 words
+                        const limitWords = (text) => {
+                            const words = text.split(' ');  // Split text into words
+                            return words.slice(0, 10).join(' ') + (words.length > 10 ? '...' : '');  // Return first 10 words
+                        };
+
+                        // Create a section for the publish date
+                        const publishDateCell = document.createElement('div');
+                        publishDateCell.classList.add('td');  // Add class for styling
+                        publishDateCell.textContent = item.content.publish_date;  // Set publish date
+                        row.appendChild(publishDateCell);  // Append to row
+
+                        // Create a section for the title
+                        const titleCell = document.createElement('div');
+                        titleCell.classList.add('td');  // Add class for styling
+                        titleCell.textContent = limitWords(item.author.name);  // Set title (limit to 10 words)
+                        row.appendChild(titleCell);  // Append to row
+
+                        // Create a section for the preamble
+                        const preambleCell = document.createElement('div');
+                        preambleCell.classList.add('td');  // Add class for styling
+                        preambleCell.textContent = limitWords(item.content.title);  // Set preamble (limit to 10 words)
+                        row.appendChild(preambleCell);  // Append to row
+
+                        // Append the row to the table body
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
