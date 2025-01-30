@@ -94,54 +94,58 @@ main {
     flex-direction: column;
 }
 
+.container {
+    width: 100%;
+    max-width: 1310px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
-.table {
+
+table {
     background-color: rgba(14, 102, 85, 0.12);
     border-radius: 8px;
-    max-width: 1300px;
     border-collapse: collapse;
-
+    width: 100%;
+    max-width: 1310px;
+    border-bottom: solid 1px;
+    border-color: lightgray;
 }
-
-thead {
-    display: flex;
-    align-items: center;
-    background-color: rgba(14, 102, 85, 0.20);
-    height: 56px;
-
-}
-
 
 .tableBody {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
 }
 
 .tRow {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 50px;
-    border-bottom: solid 1px;
-    border-color: lightgray;
-    width: 100%;
+    border-bottom: lightgray 1px solid;
 }
 
-td {
-    color: darkgrey;
-    margin-left: 20px;
+.td {
     height: 30px;
     line-height: 20px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    padding: 10px 10px;
+    width: 20%;
 }
 
-.thParagraph {
-    font-size: 20px;
-    color: grey;
+.tdDate {
+    width: 15%;
+}
+
+.tdName {
+    width: 20%;
+}
+
+.tdTitle {
+    width: 40%;
+
 }
 
 button {
@@ -155,29 +159,6 @@ button {
 }
 
 
-
-#content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-}
-
-.card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-    margin: 0 0 0.5rem;
-}
-
-.card p {
-    margin: 0.5rem 0;
-}
-
 /* Footer */
 
 footer {
@@ -190,12 +171,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .footerBox {
     width: 70%;
-
 }
 
 .hBoxFooter {
@@ -205,7 +184,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 
