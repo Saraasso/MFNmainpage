@@ -61,16 +61,22 @@ header {
     background-color: white;
     border-radius: 20px;
     margin: 10px;
-
 }
 
 .searchInputField {
     background-color: white;
     border-radius: 20px;
+    border: solid 1px;
+    border-color: rgb(14, 102, 85, 0.65);
     width: 430px;
     display: flex;
     justify-content: left;
+    padding: 2px 7px;
+}
 
+.searchInputField::placeholder {
+    font-size: 14px;
+    color: rgb(14, 102, 85, 0.65);
 }
 
 .hBox {
@@ -196,12 +202,6 @@ footer {
 
 
 /* Typography*/
-
-.typographySmall {
-    font-size: 14px;
-    color: rgb(14, 102, 85, 0.65);
-    margin-left: 10px;
-}
 
 .typographyThin {
     font-size: 30;
