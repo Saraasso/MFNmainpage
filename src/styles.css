@@ -86,11 +86,12 @@ header {
 /* main */
 
 main {
-    padding: 2rem;
+    padding: 80px;
     height: 500px;
     align-items: center;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -135,6 +136,7 @@ td {
     line-height: 20px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .thParagraph {
@@ -142,6 +144,15 @@ td {
     color: grey;
 }
 
+button {
+    width: 220px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 15px;
+    color: #0E6655;
+    border: solid 1px #0E6655;
+    cursor: pointer;
+}
 
 
 
