@@ -39,22 +39,26 @@
 
     <main>
         <div class="container">
+            <div class="titleBox">
+                <h1>De senaste nyheterna</h1>
+            </div>
             <table>
                 <tbody classname="tableBody" id="tableBody">
                 </tbody>
             </table>
-            <button> Visa fler</button>
+            <button id="loadMoreButton"> Visa fler</button>
             </container>
     </main>
 
     <footer>
-        <div class="footerBox">
-            <div class="hBoxFooter">
-                <div class="logo">MFN</div>
-                <p class="typographyThin">En produkt av Modular Finance</p>
-            </div>
+        <div class="hBoxFooter">
+            <div class="logo">MFN</div>
+            <p class="typographyThin">En produkt av Modular Finance</p>
         </div>
     </footer>
+
+    <!--Javascript-->
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -104,6 +108,7 @@
 
                         tableBody.appendChild(row);
                     });
+
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
