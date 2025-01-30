@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #F1EAEA;
     color: #333;
+    height: 100%;
 }
 
 /*Header*/
@@ -86,18 +87,18 @@ header {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
 }
 
 /* main */
 
 main {
-    padding: 120px;
-    height: 500px;
+    padding: 80px;
+    height: 100vh;
     align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .container {
@@ -107,6 +108,9 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    border-radius: 8px;
 }
 
 .titleBox {
@@ -122,11 +126,13 @@ table {
     max-width: 1310px;
     border-bottom: solid 1px;
     border-color: lightgray;
+    table-layout: fixed;
 }
 
 .tableBody {
-    display: flex;
+    display: block;
     align-items: center;
+    overflow-y: auto;
 }
 
 .tRow {
@@ -143,7 +149,6 @@ table {
     padding: 10px 10px;
     width: 20%;
     font-size: 15px;
-
 }
 
 .tdDate {

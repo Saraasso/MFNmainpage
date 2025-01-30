@@ -37,16 +37,18 @@
     </header>
 
     <main>
+        <div class="titleBox">
+            <h1>De senaste nyheterna</h1>
+        </div>
         <div class="container">
-            <div class="titleBox">
-                <h1>De senaste nyheterna</h1>
-            </div>
+
             <table>
                 <tbody classname="tableBody" id="tableBody">
                 </tbody>
             </table>
-            <button id="loadMoreButton"> Visa fler</button>
-            </container>
+        </div>
+
+        <button id="loadMoreButton"> Visa fler</button>
     </main>
 
     <footer>
@@ -60,6 +62,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const tableBody = document.getElementById('tableBody');
+            const loadMoreButton = document.getElementById('loadMoreButton');
+
+            let visibleItemsCount = 0;
+            const itemsPerLoad = 12;
 
             fetch('data.json')
                 .then(response => {
@@ -69,45 +76,51 @@
                     return response.json();
                 })
                 .then(data => {
-                    const tableBody = document.getElementById('tableBody');
+                    const allItems = data.items;
 
+                    const renderItems = (startIndex, endIndex) => {
+                        const itemsToRender = allItems.slice(startIndex, endIndex);
+                        itemsToRender.forEach(item => {
+                            const row = document.createElement('tr');
+                            row.classList.add('tRow');
 
-                    const latestItems = data.items.slice(0, 10);
+                            const limitWords = (text) => {
+                                const words = text.split(' ');
+                                return words.slice(0, 7).join(' ') + (words.length > 7 ? '...' : '');
+                            };
 
+                            const publishDateCell = document.createElement('div');
+                            publishDateCell.classList.add('td', 'tdDate');
+                            publishDateCell.textContent = item.content.publish_date;
+                            row.appendChild(publishDateCell);
 
-                    latestItems.forEach(item => {
+                            const titleCell = document.createElement('div');
+                            titleCell.classList.add('td', 'tdName');
+                            titleCell.textContent = limitWords(item.author.name);
+                            row.appendChild(titleCell);
 
-                        const row = document.createElement('div');
-                        row.classList.add('tRow');
+                            const preambleCell = document.createElement('div');
+                            preambleCell.classList.add('td', 'tdTitle');
+                            preambleCell.textContent = limitWords(item.content.title);
+                            row.appendChild(preambleCell);
 
+                            tableBody.appendChild(row);
+                        });
+                    };
 
-                        const limitWords = (text) => {
-                            const words = text.split(' ');
-                            return words.slice(0, 7).join(' ') + (words.length > 7 ? '...' : '');
-                        };
+                    renderItems(0, itemsPerLoad);
+                    visibleItemsCount = itemsPerLoad;
 
-
-                        const publishDateCell = document.createElement('div');
-                        publishDateCell.classList.add('td', 'tdDate');
-                        publishDateCell.textContent = item.content.publish_date;
-                        row.appendChild(publishDateCell);
-
-
-                        const titleCell = document.createElement('div');
-                        titleCell.classList.add('td', 'tdName');
-                        titleCell.textContent = limitWords(item.author.name);
-                        row.appendChild(titleCell);
-
-
-                        const preambleCell = document.createElement('div');
-                        preambleCell.classList.add('td', 'tdTitle');
-                        preambleCell.textContent = limitWords(item.content.title);
-                        row.appendChild(preambleCell);
-
-
-                        tableBody.appendChild(row);
+                    loadMoreButton.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        if (visibleItemsCount < allItems.length) {
+                            renderItems(visibleItemsCount, visibleItemsCount + itemsPerLoad);
+                            visibleItemsCount += itemsPerLoad;
+                        } else {
+                            loadMoreButton.disabled = true;
+                            loadMoreButton.textContent = 'Inga fler nyheter';
+                        }
                     });
-
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
