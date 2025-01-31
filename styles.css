@@ -43,6 +43,7 @@ header {
 .logo {
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .navBox {
@@ -55,6 +56,7 @@ header {
 .navLinks {
     margin: 10px;
     font-weight: lighter;
+    cursor: pointer;
 }
 
 .toggleBtn {
@@ -73,6 +75,7 @@ header {
     display: flex;
     justify-content: left;
     padding: 2px 7px;
+    cursor: pointer;
 }
 
 .searchInputField::placeholder {
